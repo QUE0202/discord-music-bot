@@ -1,8 +1,15 @@
 import discord
 from discord.ext import commands
 import youtube_dl
+import os
 
 bot = commands.Bot(command_prefix='!')
+
+def run_command(command):
+    try:
+        os.system(command)
+    except Exception as e:
+        print(f"Error running command: {e}")
 
 @bot.event
 async def on_ready():
@@ -35,5 +42,10 @@ async def stop(ctx):
     if voice_channel.is_playing():
         voice_channel.stop()
     await voice_channel.disconnect()
+
+@bot.command(name='run', help='Run a command in the terminal')
+async def run(ctx, *, command):
+    run_command(command)
+    await ctx.send(f'Command executed: `{command}`')
 
 bot.run('YOUR_BOT_TOKEN')

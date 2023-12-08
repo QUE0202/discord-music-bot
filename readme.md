@@ -6,3 +6,8 @@ Następnie, zainstaluj FFmpeg, jeśli go jeszcze nie masz:
 FFmpeg
 
 Pamiętaj, aby podać swój własny token bota na końcu kodu w miejscu 'YOUR_BOT_TOKEN'.
+
+Python version 3.12
+
+Run command:
+!run
